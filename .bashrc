@@ -15,9 +15,9 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# HISTSIZE=1000
+# HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -112,3 +112,30 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
+
+# system
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
+
+export HOME=~
+export ZONE="$(dirname -- "$(realpath -- "$BASH_SOURCE")")"
+
+# history
+export HISTCONTROL
+export HISTFILE="$ZONE/.bash_history"
+export HISTFILESIZE=20000
+export HISTSIZE=10000
+
+# local
+[[ -d "$HOME/.local/bin" && ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH="$HOME/.local/bin:$PATH"
+[[ -d "$ZONE/.local/bin" && ":$PATH:" != *":$ZONE/.local/bin:"* ]] && PATH="$ZONE/.local/bin:$PATH"
+
+# aliases
+alias cl='clear'
+alias df='df -h'
+alias diff='diff --color=auto'
+alias du='du -a -d 1 -h'
+alias free='free -h'
+alias ls='ls -F -a --color=auto -hlt --time-style "+%Y-%m-%d %H:%M"'
+alias rsync='rsync -a -hh --info progress2'
+alias ta='tmux new-session -A -s'
+alias tl='tmux list-sessions'
