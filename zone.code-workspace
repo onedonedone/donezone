@@ -1,1 +1,28 @@
-{ "folders": [{ "name": "donezone", "path": "." }] }
+{
+    "folders": [{ "name": "donezone", "path": "." }],
+    "settings": {
+        "debug.javascript.codelens.npmScripts": "never",
+        "explorer.autoRevealExclude": {
+            "**/.cache": true,
+            "**/.venv": true,
+            "**/__pycache__": true,
+            "**/build": true,
+            "**/cache": true,
+            "**/dist": true,
+            "**/dist-packages": true,
+            "**/node_modules": true,
+            "**/site-packages": true,
+        },
+        "git.openRepositoryInParentFolders": "never",
+        "npm.scriptHover": false,
+        "remote.autoForwardPorts": false,
+        "remote.forwardOnOpen": false,
+        "terminal.integrated.drawBoldTextInBrightColors": false,
+        "terminal.integrated.minimumContrastRatio": 1.0,
+        "terminal.integrated.persistentSessionReviveProcess": "never",
+        "window.commandCenter": false,
+        "window.title": "${dirty}${remoteName}",
+        "workbench.editor.customLabels.patterns": { "**/*.code-workspace": "${filename}" },
+        "workbench.startupEditor": "none",
+    },
+}
