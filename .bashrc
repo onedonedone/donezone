@@ -113,3 +113,17 @@ if ! shopt -oq posix; then
         . '/etc/bash_completion'
     fi
 fi
+
+# workspace
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
+
+# onedonedone
+alias cl='clear'
+alias df='df -h'
+alias diff='diff --color=auto'
+alias du='du -a -d 1 -h'
+alias free='free -h'
+alias ls='ls -F --color=auto -hlt --time-style "+%Y-%m-%d %H:%M"'
+alias rsync='rsync -a -hh --info progress2'
+alias ta='tmux new-session -A -s'
+alias tl='tmux list-sessions'
