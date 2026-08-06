@@ -5,6 +5,7 @@
 !/.local/
 !/.local/bin/
 !/.local/bin/git
+!/.local/bin/git-at
 !/.local/bin/shims/
 !/.local/bin/shims/**
 !/zone.code-workspace
