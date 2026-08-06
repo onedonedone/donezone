@@ -17,9 +17,18 @@
         "npm.scriptHover": false,
         "remote.autoForwardPorts": false,
         "remote.forwardOnOpen": false,
+        "terminal.integrated.defaultProfile.linux": "custom bash",
         "terminal.integrated.drawBoldTextInBrightColors": false,
         "terminal.integrated.minimumContrastRatio": 1.0,
         "terminal.integrated.persistentSessionReviveProcess": "never",
+        "terminal.integrated.profiles.linux": {
+            "custom bash": {
+                "args": ["--init-file", "${workspaceFolder:donezone}/.bashrc"],
+                "env": { "ZONE": "${workspaceFolder:donezone}" },
+                "icon": "terminal-bash",
+                "path": "/usr/bin/bash",
+            },
+        },
         "window.commandCenter": false,
         "window.title": "${dirty}${remoteName}",
         "workbench.editor.customLabels.patterns": { "**/*.code-workspace": "${filename}" },
