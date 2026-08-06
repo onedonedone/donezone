@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTFILESIZE=2000
-HISTSIZE=1000
+# HISTFILESIZE=2000
+# HISTSIZE=1000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -35,44 +35,44 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    (xterm-color|*-256color) color_prompt=yes ;;
-esac
+# # set a fancy prompt (non-color, unless we know we "want" color)
+# case "$TERM" in
+#     (xterm-color|*-256color) color_prompt=yes ;;
+# esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-# force_color_prompt=yes
+# # uncomment for a colored prompt, if the terminal has the capability; turned
+# # off by default to not distract the user: the focus in a terminal window
+# # should be on the output of commands, not on the prompt
+# # force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
-fi
+# if [ -n "$force_color_prompt" ]; then
+#     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#         # We have color support; assume it's compliant with Ecma-48
+#         # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#         # a case would tend to support setf rather than setaf.)
+#         color_prompt=yes
+#     else
+#         color_prompt=
+#     fi
+# fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
+# unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-    (xterm*|rxvt*) PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
-               (*) ;;
-esac
+# # If this is an xterm set the title to user@host:dir
+# case "$TERM" in
+#     (xterm*|rxvt*) PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
+#                (*) ;;
+# esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    # alias ls='ls --color=auto'
     # alias dir='dir --color=auto'
     # alias vdir='vdir --color=auto'
 
@@ -112,3 +112,57 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
+
+# system
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
+
+export HOME=~
+export ZONE="${ZONE:-"$(dirname "$(realpath "$BASH_SOURCE")")"}"
+
+export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# history
+export HISTCONTROL
+export HISTFILE="$ZONE/.bash_history"
+export HISTFILESIZE=20000
+export HISTSIZE=10000
+export PROMPT_COMMAND=
+
+# conda
+export CONDA_ROOT=
+
+[[ -f "$HOME/.local/lib/miniconda3/etc/profile.d/conda.sh" ]] && CONDA_ROOT="$HOME/.local/lib/miniconda3"
+[[ -f "$ZONE/.local/lib/miniconda3/etc/profile.d/conda.sh" ]] && CONDA_ROOT="$ZONE/.local/lib/miniconda3"
+
+[[ -n "${CONDA_ROOT:-}" ]] && source "$CONDA_ROOT/etc/profile.d/conda.sh"
+
+[[ -d "$CONDA_ROOT/condabin" && ":$PATH:" != *":$CONDA_ROOT/condabin:"* ]] && PATH="$CONDA_ROOT/condabin:$PATH"
+
+# nvm
+export NVM_DIR=
+
+[[ -s "$HOME/.nvm/nvm.sh" ]] && NVM_DIR="$HOME/.nvm"
+[[ -s "$ZONE/.nvm/nvm.sh" ]] && NVM_DIR="$ZONE/.nvm"
+
+[[ -n "${NVM_DIR:-}" && -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+[[ -n "${NVM_DIR:-}" && -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+
+# webi
+export ENVMAN_LOAD=
+
+[[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
+
+# local
+[[ -d "$HOME/.local/bin" && ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH="$HOME/.local/bin:$PATH"
+[[ -d "$ZONE/.local/bin" && ":$PATH:" != *":$ZONE/.local/bin:"* ]] && PATH="$ZONE/.local/bin:$PATH"
+
+# aliases
+alias cl='clear'
+alias df='df -h'
+alias diff='diff --color=auto'
+alias du='du -a -d 1 -h'
+alias free='free -h'
+alias ls='LC_ALL=C.UTF-8 ls -Fa --color=auto -hl --time-style "+%Y-%m-%d %H:%M"'
+alias rsync='rsync -a -hh --info progress2'
+alias ta='tmux -L donezone new-session -A -s'
+alias tl='tmux -L donezone list-sessions'
