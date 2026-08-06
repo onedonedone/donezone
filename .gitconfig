@@ -1,0 +1,22 @@
+[alias]
+    a = add -A
+    l = log -n 3
+    r = log -n 3
+    recent = log -n 3
+    s = status
+[core]
+    editor = vim
+    precomposeunicode = true
+    quotepath = false
+[format]
+    pretty = tformat:%C(auto)%h %C(green)%ad%C(reset) %C(auto)%s%d
+[i18n]
+    commitencoding = utf-8
+    logoutputencoding = utf-8
+[init]
+    defaultbranch = undone
+[log]
+    date = format:%Y-%m-%d %H:%M
+[user]
+    email = onedonedone@sjtu.edu.cn
+    name = onedonedone

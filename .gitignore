@@ -1,4 +1,10 @@
 *
 !/.bashrc
+!/.gitconfig
 !/.gitignore
+!/.local/
+!/.local/bin/
+!/.local/bin/git
+!/.local/bin/shims/
+!/.local/bin/shims/**
 !/zone.code-workspace
