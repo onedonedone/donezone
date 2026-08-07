@@ -116,6 +116,7 @@ fi
 
 # workspace
 export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
+export ZONE="${ZONE:-$(dirname -- "$(realpath -- "$BASH_SOURCE")")}"
 
 # onedonedone
 alias cl='clear'
@@ -127,3 +128,8 @@ alias ls='ls -F --color=auto -hlt --time-style "+%Y-%m-%d %H:%M"'
 alias rsync='rsync -a -hh --info progress2'
 alias ta='tmux new-session -A -s'
 alias tl='tmux list-sessions'
+
+# shims
+bash() {
+    /usr/bin/bash --init-file "$ZONE/.bashrc" "$@"
+}
