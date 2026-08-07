@@ -8,4 +8,6 @@
 !/.local/bin/git-at
 !/.local/bin/shims/
 !/.local/bin/shims/**
+!/.local/bin/tmux
+!/.tmux.conf
 !/zone.code-workspace
