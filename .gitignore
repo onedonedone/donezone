@@ -4,6 +4,7 @@
 !/.gitignore
 !/.local/
 !/.local/bin/
+!/.local/bin/code
 !/.local/bin/git
 !/.local/bin/git-at
 !/.local/bin/shims/
