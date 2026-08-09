@@ -144,6 +144,9 @@ export NVM_DIR=
 [[ -n "${NVM_DIR:-}" && -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 [[ -n "${NVM_DIR:-}" && -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
 
+# webi
+[[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
+
 # local
 [[ -d "$HOME/.local/bin" && ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d "$ZONE/.local/bin" && ":$PATH:" != *":$ZONE/.local/bin:"* ]] && PATH="$ZONE/.local/bin:$PATH"
