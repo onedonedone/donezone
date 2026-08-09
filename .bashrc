@@ -125,6 +125,16 @@ export HISTFILE="$ZONE/.bash_history"
 export HISTFILESIZE=20000
 export HISTSIZE=10000
 
+# conda
+export CONDA_ROOT=
+
+[[ -f "$HOME/.local/opt/miniconda3/etc/profile.d/conda.sh" ]] && CONDA_ROOT="$HOME/.local/opt/miniconda3"
+[[ -f "$ZONE/.local/opt/miniconda3/etc/profile.d/conda.sh" ]] && CONDA_ROOT="$ZONE/.local/opt/miniconda3"
+
+[[ -n "${CONDA_ROOT:-}" ]] && source "$CONDA_ROOT/etc/profile.d/conda.sh"
+
+[[ -d "$CONDA_ROOT/condabin" && ":$PATH:" != *":$CONDA_ROOT/condabin:"* ]] && PATH="$CONDA_ROOT/condabin:$PATH"
+
 # local
 [[ -d "$HOME/.local/bin" && ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d "$ZONE/.local/bin" && ":$PATH:" != *":$ZONE/.local/bin:"* ]] && PATH="$ZONE/.local/bin:$PATH"
