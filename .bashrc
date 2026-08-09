@@ -135,6 +135,15 @@ export CONDA_ROOT=
 
 [[ -d "$CONDA_ROOT/condabin" && ":$PATH:" != *":$CONDA_ROOT/condabin:"* ]] && PATH="$CONDA_ROOT/condabin:$PATH"
 
+# nvm
+export NVM_DIR=
+
+[[ -s "$HOME/.nvm/nvm.sh" ]] && NVM_DIR="$HOME/.nvm"
+[[ -s "$ZONE/.nvm/nvm.sh" ]] && NVM_DIR="$ZONE/.nvm"
+
+[[ -n "${NVM_DIR:-}" && -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+[[ -n "${NVM_DIR:-}" && -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+
 # local
 [[ -d "$HOME/.local/bin" && ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d "$ZONE/.local/bin" && ":$PATH:" != *":$ZONE/.local/bin:"* ]] && PATH="$ZONE/.local/bin:$PATH"
