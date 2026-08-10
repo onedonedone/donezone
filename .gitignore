@@ -1,9 +1,14 @@
 *
 !/.bashrc
+!/.config/
+!/.config/claude/
+!/.config/claude/settings.fallback.json
+!/.config/claude/settings.ironclad.json
 !/.gitconfig
 !/.gitignore
 !/.local/
 !/.local/bin/
+!/.local/bin/claude
 !/.local/bin/code
 !/.local/bin/git
 !/.local/bin/git-at
