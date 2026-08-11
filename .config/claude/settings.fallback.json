@@ -1,1 +1,6 @@
-{}
+{
+    "autoMemoryEnabled": false,
+    "permissions": { "defaultMode": "bypassPermissions" },
+    "theme": "auto",
+    "tui": "fullscreen"
+}

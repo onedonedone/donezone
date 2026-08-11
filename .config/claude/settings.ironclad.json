@@ -1,1 +1,13 @@
-{}
+{
+    "env": {
+        "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
+        "CLAUDE_CODE_TMUX_TRUECOLOR": "1",
+        "DISABLE_AUTOUPDATER": "1",
+        "ENABLE_TOOL_SEARCH": "true",
+        "IS_SANDBOX": "1"
+    },
+    "language": "chinese",
+    "model": "claude-opus-4-6[1m]",
+    "permissions": { "allow": ["Read", "WebFetch", "WebSearch"] },
+    "skipDangerousModePermissionPrompt": true
+}
