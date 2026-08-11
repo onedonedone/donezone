@@ -2,6 +2,7 @@
 !/.bashrc
 !/.config/
 !/.config/claude/
+!/.config/claude/CLAUDE.md
 !/.config/claude/settings.fallback.json
 !/.config/claude/settings.ironclad.json
 !/.gitconfig
